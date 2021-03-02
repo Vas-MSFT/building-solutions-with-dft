@@ -1,0 +1,56 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.2",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "A new Team Initiative proposed",
+            "size": "Large",
+            "weight": "Bolder"
+        },
+        {
+            "type": "TextBlock",
+            "text": "@{triggerOutputs()?['body/crXXX_name']}",
+            "isSubtle": true,
+            "size": "Large"
+        },
+        {
+            "text": "@{triggerOutputs()?['body/crXXX_description']}",
+            "type": "TextBlock",
+            "wrap": true
+        },
+        {
+            "type": "Image",
+            "url": "@{triggerOutputs()?['body/crXXX_imageurl']}"
+        },
+        {
+            "type": "TextBlock",
+            "text": "Article: [Event Page](@{triggerOutputs()?['body/crXXX_intraneturl']})"
+        },
+        {
+            "facts": [
+                {
+                    "title": "Start date",
+                    "value": "@{triggerOutputs()?['body/crXXX_startdate']}"
+                },
+                {
+                    "title": "End date",
+                    "value": "@{triggerOutputs()?['body/crXXX_enddate']}"
+                },
+                {
+                    "title": "Award points",
+                    "value": "@{triggerOutputs()?['body/crXXX_awardpoints']}"
+                }
+            ],
+            "type": "FactSet"
+        }
+    ],
+    "actions": [
+        {
+          "type": "Action.OpenUrl",
+          "title": "Go to Team Initiatives app",
+          "url": "<<PUT DEEP LINK HERE>>"
+        }
+      ]
+}
